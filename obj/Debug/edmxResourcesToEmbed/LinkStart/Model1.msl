@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="EntitiesDb">
+    <EntitySetMapping Name="Couleurs">
+      <EntityTypeMapping TypeName="Model.Couleurs">
+        <MappingFragment StoreEntitySet="Couleurs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Marques">
+      <EntityTypeMapping TypeName="Model.Marques">
+        <MappingFragment StoreEntitySet="Marques">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ventes">
+      <EntityTypeMapping TypeName="Model.Ventes">
+        <MappingFragment StoreEntitySet="Ventes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="couleurid" ColumnName="couleurid" />
+          <ScalarProperty Name="marqueid" ColumnName="marqueid" />
+          <ScalarProperty Name="valeur" ColumnName="valeur" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

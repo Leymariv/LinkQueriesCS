@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\DEV\VALMONLEYMARIE\LINQWINFORMPROJECT\MODULESQL-DATABASE.MDF.dbo.Couleurs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Couleurs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\DEV\VALMONLEYMARIE\LINQWINFORMPROJECT\MODULESQL-DATABASE.MDF.dbo.Marques' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Marques">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\DEV\VALMONLEYMARIE\LINQWINFORMPROJECT\MODULESQL-DATABASE.MDF.dbo.Ventes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Ventes">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="couleurid" />
+      <PropertyRef Name="marqueid" />
+      <PropertyRef Name="valeur" />
+      <PropertyRef Name="date" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="couleurid" Type="int" Nullable="false" />
+    <Property Name="marqueid" Type="int" Nullable="false" />
+    <Property Name="valeur" Type="float" Nullable="false" />
+    <Property Name="date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="Couleurs" EntityType="Self.Couleurs" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>
+              SELECT
+              [Couleurs].[Id] AS [Id],
+              [Couleurs].[name] AS [name]
+              FROM [dbo].[Couleurs] AS [Couleurs]
+            </DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Marques" EntityType="Self.Marques" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>
+              SELECT
+              [Marques].[Id] AS [Id],
+              [Marques].[Name] AS [Name]
+              FROM [dbo].[Marques] AS [Marques]
+            </DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Ventes" EntityType="Self.Ventes" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>
+              SELECT
+              [Ventes].[Id] AS [Id],
+              [Ventes].[couleurid] AS [couleurid],
+              [Ventes].[marqueid] AS [marqueid],
+              [Ventes].[valeur] AS [valeur],
+              [Ventes].[date] AS [date]
+              FROM [dbo].[Ventes] AS [Ventes]
+            </DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
